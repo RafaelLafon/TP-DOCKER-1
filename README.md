@@ -364,4 +364,17 @@ Note : Démarage du conteneur MySQL dans un premier terminal, le tout connecter 
         [Wed Jun 04 09:41:38.264622 2025] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.62 (Debian) PHP/8.2.28 configured -- resuming normal operations
         [Wed Jun 04 09:41:38.264650 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
 
-Note : Même chose pour PhpMyAdmin.
+Note : Même chose pour PhpMyAdmin (user= testuser ; mdp= testpass).
+
+
+
+16.Connexion et créations d'éléments dans la DB (nome de la table : Shtroumpfs):
+
+ 	# 	Name 	Type 	Collation 	Attributes 	Null 	Default 	Comments 	Extra 	Action
+	1 	Name 	varchar(20) 	latin1_swedish_ci 		Yes 	NULL 			Change Change 	Drop Drop 	
+	2 	Age 	int(11) 			Yes 	NULL 			Change Change 	Drop Drop 	
+	3 	Size 	int(11) 			No 	None 			Change Change 	Drop Drop 	
+	4 	Sexe 	varchar(6) 	latin1_swedish_ci 		No 	None 			Change Change 	Drop Drop 	
+
+
+Note : Les noms ne sont qu'un teste, je ne fait aucun ressencement des Shtroumph en fonction de leur ethnie , cela étant interdit par la Loi n° 2007-297 du 5 mars 2007 .
