@@ -75,3 +75,35 @@ Note : Recréation d'un conteneur et mise en route sans volume.
 =>      Successfully copied 2.05kB to httpd-container:/usr/local/apache2/htdocs/index.html
 
 Note : Copie manuellement l'index.html dans le conteneur.
+
+
+
+8.nano Dockerfile :
+
+=>      Création du Dockerfile
+
+Note : Je le remplis du contenu suivant = 
+            FROM httpd:latest
+            COPY index.html /usr/local/apache2/htdocs/
+Là j'utilise l'image d'Apache HTTPD comme base.
+
+
+
+9.docker build -t image-httpd-container . :
+
+        [+] Building 0.1s (7/7) FINISHED                                                                                                                                                 docker:default
+        => [internal] load build definition from Dockerfile                                                                                                                                       0.0s
+        => => transferring dockerfile: 98B                                                                                                                                                        0.0s
+        => [internal] load metadata for docker.io/library/httpd:latest                                                                                                                            0.0s
+        => [internal] load .dockerignore                                                                                                                                                          0.0s
+        => => transferring context: 2B                                                                                                                                                            0.0s
+        => [internal] load build context                                                                                                                                                          0.0s
+        => => transferring context: 286B                                                                                                                                                          0.0s
+        => [1/2] FROM docker.io/library/httpd:latest                                                                                                                                              0.0s
+        => [2/2] COPY index.html /usr/local/apache2/htdocs/                                                                                                                                       0.0s
+        => exporting to image                                                                                                                                                                     0.0s
+        => => exporting layers                                                                                                                                                                    0.0s
+        => => writing image sha256:a6804a90214bde32e0b9f7235f5feb0b08287cb676d5a9dff822e78f397428d2                                                                                               0.0s
+        => => naming to docker.io/library/image-httpd-container        
+
+Note : Je build l'image dans le dossier actuel en se basant ducoup sur mon fichier Dockerfile
