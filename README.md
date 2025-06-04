@@ -458,3 +458,15 @@ Note :J'me connecte au conteneur db.
 =>      ping: web: Name does not resolve
 
 Note: Note: Le ping ne fonctionne pas.
+
+
+
+25: QUESTION : Quelles lignes du résultat de la commande docker inspect justifient ce comportement ?
+
+Réponse : Ce qui le justifie c'est la section Networks qui montre les réseaux ou chaque conteneur est connecté.On a les conteneurs web qui affiche uniquement une entrée pour frontend , db affiche uniquement une entrée pour backend et app a une entrée pour les deux.
+
+
+
+26: QUESTION :Dans quelle situation réelles (avec quelles images) pourrait-on avoir cette configuration réseau ? Dans quel but ?
+
+Réponse : Ca serait une architechture pour des petits services.L’objectif principal c'est de sécuriser la communication, on a le service web public qui ne peut pas accéder directement à la DB. Donc, vu les attentes moindre pour cette architechture, les services à qui elle pourait appartenir de doivent pas être de grande ampleure.
