@@ -13,11 +13,9 @@ le tout accompagné d'une note personnel sur l'utilité de chaque commandes :
 
 -------------------------------------------------------------------------------------------------------------
 
-1.sudo su
+1.sudo adduser $(whoami) docker
 
-=> root
-
-Note : Docker demande systématique de sudo pour executer ses commandes, je passe donc en root pour mener à bien chaque commande et ne pas perdre de temps.
+Note : Docker demande systématique de sudo pour executer ses commandes, j'ajoute donc mon user dans docker pour mener à bien chaque commande et ne pas perdre de temps.
 
 
 
@@ -43,4 +41,12 @@ Note : l'image est bien stocker localement , en compagnie de nginx suite à un t
 
 
 
-4.
+4.docker run -p 8080:80 -v ~/Desktop/TP-DOCKER-1:/usr/local/apache2/htdocs/ --name httpd-container httpd :
+
+=>      AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to       suppress this message
+        AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message
+        [Wed Jun 04 08:06:07.480452 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) configured -- resuming normal operations
+        [Wed Jun 04 08:06:07.480536 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+        172.17.0.1 - - [04/Jun/2025:08:06:19 +0000] "GET / HTTP/1.1" 200 247
+
+Note : Lancement du conteneur à l'adresse 172.17.0.3, le Docker liant son port 80 au port 8080 de ma machine, avec le PATH du fichier HTML souahiter vers le dossier du conteneur pour affihcer la page et le nom et la nature conteneur.
