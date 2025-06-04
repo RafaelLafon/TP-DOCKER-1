@@ -390,3 +390,18 @@ Note : Les noms ne sont qu'un teste, je ne fait aucun ressencement des Shtroumph
         ✔ Container mysql-container       Started 
 
 Note : Après avoir crée un fichier Docker Compose en YML, qui nous sert de fichier de configuration, on execute cette commande pour executer le fichier précédament crée. Le contenue de ce YML initalise les deux conteneur et les connecte dans un réseau personnalisé nommé my-net, et expose l'UI de PhpMyAdmin sur le localhost/8081.
+
+
+
+18. QUESTION :Qu’apporte le fichier docker-compose par rapport aux commandes docker run ? Pourquoi est-il intéressant ? (cf. ce qui a été présenté pendant le cours)
+
+Réponse : Comme je le disais précédament, il nous sert un peut de fichier de configuration dans le sense ou tout est déjà établie, il est plus lisible , portable et plus facilement maintenable que des commande docker run répété en boucle.
+
+
+
+19. QUESTION :Quel moyen permet de configurer (premier utilisateur, première base de données, mot de passe root, …) facilement le conteneur mysql au lancement ?
+
+Réponse : Les variables d'environement sont plus opti car elles sont prises en charge quasi automatiquement par l'image de MySQL.
+
+
+20.
