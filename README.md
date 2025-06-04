@@ -50,3 +50,28 @@ Note : l'image est bien stocker localement , en compagnie de nginx suite à un t
         172.17.0.1 - - [04/Jun/2025:08:06:19 +0000] "GET / HTTP/1.1" 200 247
 
 Note : Lancement du conteneur à l'adresse 172.17.0.3, le Docker liant son port 80 au port 8080 de ma machine, avec le PATH du fichier HTML souahiter vers le dossier du conteneur pour affihcer la page et le nom et la nature conteneur.
+
+
+
+5.docker stop httpd-container && docker rm httpd-container :
+
+=>      Arret et suppression du conteneur en vu de l'étape suivatne.
+
+
+
+6.docker run -d --name httpd-container -p 8080:80 httpd :
+
+=>      AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message
+        AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message
+        [Wed Jun 04 08:21:34.335898 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) configured -- resuming normal operations
+        [Wed Jun 04 08:21:34.335991 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+
+Note : Recréation d'un conteneur et mise en route sans volume.
+
+
+
+7.docker cp ~/Desktop/TP-DOCKER-1/index.html httpd-container:/usr/local/apache2/htdocs/index.html :
+
+=>      Successfully copied 2.05kB to httpd-container:/usr/local/apache2/htdocs/index.html
+
+Note : Copie manuellement l'index.html dans le conteneur.
