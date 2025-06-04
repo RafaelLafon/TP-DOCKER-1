@@ -382,4 +382,11 @@ Note : Les noms ne sont qu'un teste, je ne fait aucun ressencement des Shtroumph
 
 
 
-17.docker-compose.yml :
+17.docker-compose up -d :
+
+=>     WARN[0000] /home/doves/Desktop/TP-DOCKER-1/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+        [+] Running 2/2
+        ✔ Container phpmyadmin-container  Started                                                                                                                                                 0.3s 
+        ✔ Container mysql-container       Started 
+
+Note : Après avoir crée un fichier Docker Compose en YML, qui nous sert de fichier de configuration, on execute cette commande pour executer le fichier précédament crée. Le contenue de ce YML initalise les deux conteneur et les connecte dans un réseau personnalisé nommé my-net, et expose l'UI de PhpMyAdmin sur le localhost/8081.
