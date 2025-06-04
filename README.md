@@ -404,4 +404,57 @@ Réponse : Comme je le disais précédament, il nous sert un peut de fichier de 
 Réponse : Les variables d'environement sont plus opti car elles sont prises en charge quasi automatiquement par l'image de MySQL.
 
 
-20.
+20.Je remplace le contenu de docker-compose.yml par un nouveau code qui qui va crée 3 conteneurs distints, bien en réseau séparer , idéntifiés comme "frontend" et "backend".
+
+21.docker compose up -d :
+
+        WARN[0000] /home/doves/Desktop/TP-DOCKER-1/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+        [+] Running 10/10
+        ✔ app Pulled                                                                                                                                                                              5.8s 
+        ✔ web Pulled                                                                                                                                                                              5.8s 
+        ✔ 5758d4e389a3 Pull complete                                                                                                                                                            0.7s 
+        ✔ 89d2c42e021e Pull complete                                                                                                                                                            1.3s 
+        ✔ c56ef2f6b498 Pull complete                                                                                                                                                            1.4s 
+        ✔ fb4370a69dda Pull complete                                                                                                                                                            1.4s 
+        ✔ 003f3d74368c Pull complete                                                                                                                                                            1.4s 
+        ✔ cd3def2cca55 Pull complete                                                                                                                                                            1.4s 
+        ✔ ba5a2b2d204e Pull complete                                                                                                                                                            1.4s 
+        ✔ db Pulled                                                                                                                                                                               5.8s 
+        [+] Running 0/1
+        ⠋ Network tp-docker-1_backend  Creating                                                                                                                                                   0.0s 
+        [+] Running 5/5d orphan containers ([phpmyadmin-container mysql-container]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --r
+        ✔ Network tp-docker-1_backend   Created                                                                                                                                                   0.0s 
+        ✔ Network tp-docker-1_frontend  Created                                                                                                                                                   0.0s 
+        ✔ Container db                  Started                                                                                                                                                   0.4s 
+        ✔ Container web                 Started                                                                                                                                                   0.3s 
+        ✔ Container app                 Started    
+
+Note : j'éxécute le YML en détaché 
+
+
+
+22.docker exec -it web sh :
+
+Note :J'me connecte au conteneur web.
+
+
+
+23.ping db :
+
+=>      ping: db: Name does not resolve
+
+Note: Le ping ne fonctionne pas.
+
+
+
+22.docker exec -it db sh :
+
+Note :J'me connecte au conteneur db.
+
+
+
+24.ping web :
+
+=>      ping: web: Name does not resolve
+
+Note: Note: Le ping ne fonctionne pas.
