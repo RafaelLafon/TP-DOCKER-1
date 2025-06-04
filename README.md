@@ -107,3 +107,15 @@ Là j'utilise l'image d'Apache HTTPD comme base.
         => => naming to docker.io/library/image-httpd-container        
 
 Note : Je build l'image dans le dossier actuel en se basant ducoup sur mon fichier Dockerfile
+
+
+
+10.docker run -p 8080:80 --name httpd-container image-httpd-container :
+
+=>      AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message
+        AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.17.0.3. Set the 'ServerName' directive globally to suppress this message
+        [Wed Jun 04 09:08:46.338407 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) configured -- resuming normal operations
+        [Wed Jun 04 09:08:46.338500 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+        172.17.0.1 - - [04/Jun/2025:09:08:50 +0000] "GET / HTTP/1.1" 200 247
+
+Note : J'utilise l'image que j'ai crée précédament pour afficher ma page html sur le localhost.
