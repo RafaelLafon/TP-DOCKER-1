@@ -119,3 +119,11 @@ Note : Je build l'image dans le dossier actuel en se basant ducoup sur mon fichi
         172.17.0.1 - - [04/Jun/2025:09:08:50 +0000] "GET / HTTP/1.1" 200 247
 
 Note : J'utilise l'image que j'ai crée précédament pour afficher ma page html sur le localhost.
+
+
+
+11. QUESTION : Quelles différences observez-vous entre les procédures 5. et 6. ? Avantages et inconvénients de l’une et de l’autre méthode ? (Mettre en relation ce qui est observé avec ce qui a été présenté pendant le cours)
+
+Réponse : Les grandes différence sont surtout sur ce qu'on a prévu d'en faire, la premiere procédure est plus local, adapté à la modification, ou encore un dev rapide. Pour le second on est plus sur de la production , tout est encapsuler dans un image, on fait de la gestion de version ce qui nous donnes tout ça un déploiement plus que fiable, moins voué à l'éxpérimentation.
+
+
