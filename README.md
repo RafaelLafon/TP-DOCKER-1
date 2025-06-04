@@ -378,3 +378,8 @@ Note : Même chose pour PhpMyAdmin (user= testuser ; mdp= testpass).
 
 
 Note : Les noms ne sont qu'un teste, je ne fait aucun ressencement des Shtroumph en fonction de leur ethnie , cela étant interdit par la Loi n° 2007-297 du 5 mars 2007 .
+
+
+
+
+17.docker-compose.yml :
