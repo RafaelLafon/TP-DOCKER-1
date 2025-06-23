@@ -15,9 +15,13 @@ le tout accompagné d'une note personnel sur l'utilité de chaque commande :
 
 1.Téléchargement du ZIP.
 
+
+
 2.Nouveau repository :
 
 => J'utilise le fichier décompresser dans le repository prééxistant
+
+
 
 3.Modification du fichier Dockerfile.
 
@@ -30,6 +34,8 @@ le tout accompagné d'une note personnel sur l'utilité de chaque commande :
     CMD ["node", "index.js"]
 
 Note : Je vais crée un image de base dans le dossier de travail que j'aurais crée juste avant. Je vais copier le fichier json pour installer uniquement les dépendances nécessaires et lancer l'éxécution. Ensuite j'éxpose le port 3000 vie Express, puis je lance un commande pour lancer le serveur.
+
+
 
 4.docker build -t masuperapp .
 
@@ -63,6 +69,8 @@ Note : Je vais crée un image de base dans le dossier de travail que j'aurais cr
     => => writing image sha256:12bdc2ae41c004b042f1bb167a3dd388f41d2afa6fd6ebbfaad5810cf7807417                                                                                               0.0s
     => => naming to docker.io/library/masuperapp                   
 
+
+
 5.Vérification du build : docker images
 
 =>  REPOSITORY                 TAG       IMAGE ID       CREATED          SIZE
@@ -74,4 +82,45 @@ Note : Je vais crée un image de base dans le dossier de travail que j'aurais cr
     mysql                      5.7       5107333e08a8   18 months ago    501MB
     praqma/network-multitool   latest    1631e536ed7d   3 years ago      39.9MB
 
-6.
+
+
+6.QUESTION : 2.3 : Quelle option npm permet d’installer seulement le nécessaire ?
+
+=> "--only=production" une option de npm install qui permet d’installer uniquement les dépendances nécessaires, pour aléger l'image docker et minimiser la surface d'attaque.
+
+
+
+7.Je complète le fichier docker-compsoe.yml
+
+=>  version: '3.9'
+
+    services:
+    app:
+        build: ./src
+        container_name: express_app
+        ports:
+        - "3000:3000"
+        environment:
+        - DB_HOST=db
+        - DB_USER=appuser
+        - DB_PASSWORD=apppass
+        - DB_NAME=appdb
+        depends_on:
+        - db
+
+    db:
+        image: mysql:8
+        container_name: express_db
+        restart: always
+        environment:
+        - MYSQL_DATABASE=appdb
+        - MYSQL_USER=appuser
+        - MYSQL_PASSWORD=apppass
+        - MYSQL_ROOT_PASSWORD=rootpass
+        volumes:
+        - db_data:/var/lib/mysql
+
+    volumes:
+    db_data:
+
+Note : Ca va permettre d'éxécuter mon docker avec sa BDD.
