@@ -120,4 +120,12 @@ Note: Ce docker file me permet de build l'app react, copier les fichiers json po
 
 
 
-5.
+5.Serveur Web pour l'app
+
+=> FROM nginx:alpine
+
+   COPY --from=build /app/build /usr/share/nginx/html
+   EXPOSE 80
+   CMD ["nginx", "-g", "daemon off;"]
+   
+Note: On rajoute ceci dans le dockerfile, ce qu nous permet de lancer un serveur nginx, de copier les fichiers buildés de l'étape précédente vers le dossier de nginx, et d'exposer le serveur sur le port 80. Puis lance Nginx en mode foreground, pour que le processus principal du conteneur reste actif et ne se termine pas desuite.
