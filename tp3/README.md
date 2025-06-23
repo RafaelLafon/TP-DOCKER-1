@@ -190,3 +190,9 @@ Note: On rajoute ceci dans le dockerfile, ce qu nous permet de lancer un serveur
  - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
 
 Note: Build de l'image docker
+
+
+
+7.docker run -d -p 8080:80 --name react-container mareactapp
+
+=>Lancement du conteneur , le contenu est éxactement pareil qu'à la question trois.
