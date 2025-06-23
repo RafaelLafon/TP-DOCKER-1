@@ -102,8 +102,22 @@ Note: Création du projet React
    webpack compiled successfully
 
 
-Note: Lancement du serveur
+Note: Lancement du serveur, et le serveur fonctione sur le local host au port 3000
 
 
 
-4.
+4.Création d'un Dockerefile
+
+=> FROM node:18-alpine as build
+
+   WORKDIR /app
+   COPY package*.json ./
+   RUN npm install
+   COPY . .
+   RUN npm run build
+
+Note: Ce docker file me permet de build l'app react, copier les fichiers json pour optimiser le cache Docker, j'initalise les dépendances, je copie le reste des fichier sources, puis je lance le build.
+
+
+
+5.
